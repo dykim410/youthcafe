@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>유스카페에 온 걸 환영해!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚀 공릉청소년문화정보센터 "유스카페"</a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">담벼락</a></li>
+                <li><a href="counseling.html">들어줄게!</a></li>
+                <li><a href="activities.html">놀아볼래?</a></li>
+                <li><a href="magazine.html">유카 매거진</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>✏️ 우리들의 이야기로 채워봐!</h1>
+        <div id="guestbook-canvas">
+            <div class="message-bubble" id="msg1">
+               
+                <span></span>
+            </div>
+            <div class="message-bubble" id="msg2">
+          
+                <span></span>
+            </div>
+             <div class="message-bubble" id="msg3">
+     
+                <span></span>
+            </div>
+        </div>
+
+
+        <form id="message-form">
+            <h2>메시지 남기기</h2>
+            <div class="form-group">
+                <label for="message">내용:</label>
+                <input type="text" id="message" name="message" placeholder="남기고 싶은 말을 적어줘! (50자 이내)" required maxlength="50">
+            </div>
+            <div class="form-group">
+               <label>배경색 선택:</label>
+                <div class="color-selection">
+                <input type="radio" id="color1" name="bgColor" value="#FFADAD" checked>
+                <label for="color1" style="background-color: #FFADAD;"></label>
+
+                <input type="radio" id="color2" name="bgColor" value="#FFD6A5">
+                <label for="color2" style="background-color: #FFD6A5;"></label>
+
+                <input type="radio" id="color3" name="bgColor" value="#FDFFB6">
+                <label for="color3" style="background-color: #FDFFB6;"></label>
+
+                <input type="radio" id="color4" name="bgColor" value="#CAFFBF">
+                <label for="color4" style="background-color: #CAFFBF;"></label>
+
+                <input type="radio" id="color5" name="bgColor" value="#9BF6FF">
+                <label for="color5" style="background-color: #9BF6FF;"></label>
+
+                <input type="radio" id="color6" name="bgColor" value="#A0C4FF">
+                <label for="color6" style="background-color: #A0C4FF;"></label>
+
+                <input type="radio" id="color7" name="bgColor" value="#BDB2FF">
+                <label for="color7" style="background-color: #BDB2FF;"></label>
+
+                <input type="radio" id="color8" name="bgColor" value="#FFC6FF">
+                <label for="color8" style="background-color: #FFC6FF;"></label>
+
+                <input type="radio" id="color9" name="bgColor" value="#E7C6FF">
+                <label for="color9" style="background-color: #E7C6FF;"></label>
+
+                <input type="radio" id="color10" name="bgColor" value="#C4F5BF">
+                <label for="color10" style="background-color: #C4F5BF;"></label>
+            </div>
+            </div>
+            <button type="submit">완료</button>
+        </form>
+    </main>
+      <footer>
+        <p>created by 도연 T</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+
+/* 전체 페이지에 적용될 기본 스타일 */ 
+:root { 
+    --main-yellow: #FEE500; 
+    --main-blue: #82C3F5;  
+    --text-color: #000000;
+    --bg-color: #FAF8F0;    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ✅ 기본 폰트를 'Gaegu'로 다시 설정 */
+body {
+    font-family: 'Gaegu', cursive; 
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 네비게이션 바 스타일 --- */
+header {
+    background-color: var(--main-blue);
+    padding: 22px 0;
+    box-shadow: 0 2px 4px rgba(219, 183, 183, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 20px;
+}
+
+nav {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ✅ 로고 폰트를 'Dongle'로 설정하고, 잘못된 속성 수정 */
+.logo {
+    font-family: 'Dongle', cursive;
+    font-size: 45px;
+    font-weight: 800; /* Dongle 폰트에 맞는 적절한 굵기 */
+    color: var(--main-yellow);
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px 10px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    background-color: var(--main-yellow);
+    color: var(--text-color);
+}
+
+/* --- 메인 콘텐츠 영역 스타일 --- */
+main {
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+
+h1 {
+    font-family: 'Gaegu', cursive;
+    color: var(--main-blue);
+    font-size: 48px; 
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: var(--text-color);
+    font-size: 32px;
+    border-bottom: 3px solid var(--main-yellow);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* --- (index.html) 방명록 페이지 스타일 --- */
+#guestbook-canvas {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: #ffffff;
+    border: 3px dashed var(--main-blue);
+    border-radius: 15px;
+    margin-bottom: 30px;
+    overflow: hidden; /* 아이콘이 밖으로 나가지 않게 */
+}
+
+.message-bubble {
+    padding: 12px 18px;
+    color: #333333;
+    font-weight: 700;
+    font-size: 18px;
+    position: absolute;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: grab;
+    user-select: none;
+}
+
+#message-form {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+#message-form .form-group {
+    margin-bottom: 15px;
+}
+
+#message-form label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+#message-form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+}
+
+button {
+    background-color: var(--main-yellow);
+    color: var(--text-color);
+    border: none;
+    padding: 12px 25px;
+    font-family: 'Gaegu', cursive;
+    font-size: 25px;
+    font-weight: 800;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* --- (activities.html) 활동 소개 페이지 스타일 --- */
+.activity-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+.activity-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.activity-card .card-content {
+    padding: 20px;
+    font-size: 20px;
+}
+
+.activity-card h3 {
+    color: var(--main-blue);
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* --- (magazine.html) 매거진 페이지 스타일 --- */
+#latest-article {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+#latest-article .meta {
+    font-size: 20px;
+    color: #777777;
+    margin-bottom: 20px;
+}
+
+#article-archive ul {
+    list-style: none;
+    padding: 0;
+}
+
+#article-archive li a {
+    display: block;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 22px;
+    transition: all 0.2s ease;
+}
+
+#article-archive li a:hover {
+    background-color: var(--main-yellow);
+    transform: translateX(10px);
+}
+
+/* =====================================================================
+   == 반응형 디자인을 위한 코드 (화면이 작아졌을 때 적용) ==
+   ===================================================================== */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-links {
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .nav-links a {
+    font-size: 18px;
+    padding: 5px 8px;
+  }
+  h1 {
+    font-size: 42px; /* Dongle 폰트는 모바일에서도 잘보이도록 조정 */
+  }
+  h2 {
+    font-size: 26px;
+  }
+  main {
+    margin-top: 25px;
+    padding: 10px;
+  }
+  #guestbook-canvas {
+    height: 75vh;
+  }
+  button {
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+  }
+  textarea, input[type="password"] {
+      font-size: 16px;
+  }
+}
+
+/* =====================================================================
+   == counseling.html (고민 상담) 페이지 디자인 개선을 위한 코드 ==
+   ===================================================================== */
+#counseling-form, #reply-check-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #555;
+}
+
+.form-group textarea, 
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Gaegu', cursive;
+    font-size: 18px;
+    transition: border-color 0.3s;
+}
+
+.form-group textarea:focus, 
+.form-group input[type="password"]:focus {
+    border-color: var(--main-blue);
+    outline: none;
+}
+
+.form-group textarea {
+    min-height: 200px;
+    resize: vertical;
+}
+
+#counseling-form button, #reply-check-form button {
+    margin-top: 10px;
+}
+
+/* =====================================================================
+   == activities.html 영상 슬라이더를 위한 스타일 ==
+   ===================================================================== */
+.slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.video-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.video-slide iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+/* =====================================================================
+   == 슬라이더 버튼 hover 시 위치가 틀어지는 문제 해결 ==
+   ===================================================================== */
+.slider-btn:hover {
+    transform: translateY(-50%) scale(1.05); 
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* =====================================================================
+   == index.html 배경색 선택 UI 수정 (미리보기, 가로 나열) ==
+   ===================================================================== */
+.color-selection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    padding-top: 5px;
+}
+
+.color-selection input[type="radio"] {
+    display: none;
+}
+
+.color-selection label {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.color-selection input[type="radio"]:checked + label {
+    border-color: var(--main-blue);
+    transform: scale(1.15);
+}
+
+/* =====================================================================
+   == magazine-admin.html 이미지 업로드 버튼 스타일 ==
+   ===================================================================== */
+
+input[type="file"] {
+    font-family: 'Gaegu', cursive;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* =====================================================================
+   == 모든 페이지에 공통으로 들어갈 푸터 스타일 ==
+   ===================================================================== */
+
+footer {
+    width: 100%;
+    text-align: center; /* 텍스트를 가운데로 정렬 */
+    padding: 30px 0 20px 0; /* 위아래에 적절한 여백 추가 */
+}
+
+footer p {
+    font-size: 12px; /* 요청하신 대로 작게 (10px~12px 사이로 조절 가능해요!) */
+    color: #aaa; /* 너무 튀지 않는 연한 회색으로 설정 */
+}
+
+
+
+
+
+

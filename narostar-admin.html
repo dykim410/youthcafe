@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>답변 관리 페이지 (나로스타 전용)</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 관리자 페이지에만 적용될 추가 스타일 */
+        .worry-card {
+            background-color: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .worry-card p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .worry-card textarea {
+            width: 100%;
+            min-height: 80px;
+            font-size: 16px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .worry-card small {
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a hr 공터 유스카페</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>💌 접수된 고민 목록 (나로스타 전용)</h1>
+        
+        <div id="worry-list">
+            <p>고민 목록을 불러오는 중입니다...</p>
+        </div>
+
+    </main>
+      <footer>
+        <p>created by 도연 T</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
+

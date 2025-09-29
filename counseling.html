@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>  
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나로스타가 무엇이든 들어줄게!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚀 공릉청소년문화정보센터 "유스카페"</a>
+            <ul class="nav-links">
+                <li><a href="index.html" >담벼락</a></li>
+                <li><a href="counseling.html" class="active">들어줄게!</a></li>
+                <li><a href="activities.html">놀아볼래?</a></li>
+                <li><a href="magazine.html">유카 매거진</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>💌 나로스타가 무엇이든지 들어줄게!</h1>
+
+        <form id="counseling-form">
+            <h2>고민 남기기 (익명 보장)</h2>
+            <div class="form-group">
+                <label for="worry">어떤 고민이 있어?</label>
+                <textarea id="worry" name="worry" rows="6" placeholder="꼭 고민이 아니어도 돼! 나로스타 쌤들에게 하고 싶은 말이 있다면 편하게 작성해줘 :)" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="password">나만 볼 수 있는 비밀번호 설정:</label>
+                <input type="password" id="password" name="password" placeholder="답변을 확인할 때 필요해!" required>
+            </div>
+            <button type="submit">보내기</button>
+        </form>
+
+        <hr style="margin: 40px 0; border: 1px solid #eee;">
+
+        <form id="reply-check-form">
+            <h2>나로스타쌤이 보낸 답장 ♥ </h2>
+            <div class="form-group">
+                <label for="check-password">설정했던 비밀번호를 입력해줘!</label>
+                <input type="password" id="check-password" name="check-password" required>
+            </div>
+            <button type="submit">보러가기</button>
+        </form>
+
+        <div id="reply-display" style="display: none; margin-top: 20px; background: #fff; padding: 20px; border-radius: 10px;">
+            <h3>나의 고민:</h3>
+            <p id="original-worry">내가 남겼던 고민 내용이 여기에 표시됩니다.</p>
+            <h3 style="margin-top: 20px;">나로스타쌤의 답변:</h3>
+            <p id="narosta-reply">나로스타쌤이 정성껏 작성한 답변이 여기에 표시됩니다.</p>
+        </div>
+    </main>
+      <footer>
+        <p>created by 도연 T</p>
+    </footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+

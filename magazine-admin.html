@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>매거진 관리 (나로스타 전용)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">🚀 공터 유스카페</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>📰 새 기사 작성하기</h1>
+        <form id="article-form">
+        <div class="form-group">
+            <label for="article-title">기사 제목:</label>
+            <input type="text" id="article-title" placeholder="제목을 입력하세요" required>
+        </div>
+        <div class="form-group">
+            <label for="article-author">작성자:</label>
+            <input type="text" id="article-author" value="썸머쌤" required>
+        </div>
+
+        <div class="form-group">
+             <label for="article-image-url">대표 이미지 주소 (선택 사항):</label>
+            <input type="text" id="article-image-url" placeholder="이미지 주소를 여기에 붙여넣으세요">
+        </div>
+        <div class="form-group">
+            <label for="article-content">기사 내용:</label>
+            <textarea id="article-content" rows="15" placeholder="여기에 기사 내용을 작성하세요..." required></textarea>
+        </div>
+        <button type="submit">기사 발행하기</button>
+        </form>
+       
+    </main>
+      <footer>
+        <p>created by 도연 T</p>
+    </footer>
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
