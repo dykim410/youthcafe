@@ -547,6 +547,56 @@ footer p {
     }
 }
 
+/* =====================================================================
+   == 새로운 메인 페이지(index.html)를 위한 스타일 ==
+   ===================================================================== */
+.intro-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.intro-card h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.intro-card p, .intro-card li {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.kiri-card {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--main-yellow);
+}
+
+.rules-list {
+    list-style-position: inside;
+    padding-left: 10px;
+}
+
+/* 모바일 화면에서 키리쌤 카드 레이아웃 변경 */
+@media (max-width: 768px) {
+    .kiri-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+
 
 
 
