@@ -596,6 +596,105 @@ footer p {
     }
 }
 
+/* =====================================================================
+   == index.html 디자인 대개편 (Hero, Mission, Grid) ==
+   ===================================================================== */
+
+/* 1. Hero 섹션 스타일 */
+.hero-section {
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    /* 나중에 여기에 배경 이미지를 추가할 수 있어요! */
+    /* background-image: url('[유스카페 사진 주소]'); */
+    background-color: #ffffff; /* 임시 배경색 */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* 움직이는 메인 타이틀 (h1 대신 적용) */
+.main-title {
+    font-family: 'Dongle', cursive;
+    font-size: 64px;
+    color: var(--main-blue);
+    margin-bottom: 0;
+}
+
+.main-title span {
+    display: inline-block;
+    animation: bounce 1.5s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+/* 각 글자에 순차적으로 딜레이를 주기 위한 설정 */
+.main-title span:nth-child(1) { --i: 1; }
+.main-title span:nth-child(2) { --i: 2; }
+.main-title span:nth-child(3) { --i: 3; }
+.main-title span:nth-child(4) { --i: 4; }
+.main-title span:nth-child(5) { --i: 5; }
+.main-title span:nth-child(6) { --i: 6; }
+.main-title span:nth-child(7) { --i: 7; }
+.main-title span:nth-child(8) { --i: 8; }
+.main-title span:nth-child(9) { --i: 9; }
+.main-title span:nth-child(10) { --i: 10; }
+.main-title span:nth-child(11) { --i: 11; }
+.main-title span:nth-child(12) { --i: 12; }
+.main-title span:nth-child(13) { --i: 13; }
+.main-title span:nth-child(14) { --i: 14; }
+.main-title span:nth-child(15) { --i: 15; }
+.main-title span:nth-child(16) { --i: 16; }
+
+
+/* 3. 미션 뽑기 스타일 */
+.mission-card {
+    text-align: center;
+}
+
+#mission-display {
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    font-size: 22px;
+    font-weight: 700;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#draw-mission-btn {
+    width: auto;
+    padding: 10px 30px;
+}
+
+/* 4. 2단 그리드 레이아웃 */
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2열 그리드 */
+    gap: 30px;
+}
+
+/* 모바일 화면에서는 1단으로 변경 */
+@media (max-width: 768px) {
+    .intro-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 
 
