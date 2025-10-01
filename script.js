@@ -454,12 +454,10 @@ if (drawMissionBtn) {
         const randomIndex = Math.floor(Math.random() * missions.length);
         const selectedMission = missions[randomIndex];
       
-        // 결과 창에 애니메이션 효과와 함께 표시
-      missionResult.style.animation = 'none';
-        void missionResult.offsetWidth; // 리플로우 강제
-        missionResult.innerHTML = `<p>${randomMission}</p>`;
-        missionResult.style.animation = 'fadeIn-up 0.5s ease-out';
+       // 화면에 선택된 미션 표시
+        missionDisplay.textContent = selectedMission;
     });
 }
+
 
 
