@@ -330,70 +330,102 @@ if (articleForm) {
   
     articleForm.addEventListener('submit', saveArticle);
 } 
-
 // =====================================================================
-// == magazine.html (매거진 보기) 페이지를 위한 코드 ==
+// == magazine.html (매거진 갤러리) 페이지를 위한 코드 ==
 // =====================================================================
-const latestArticleSection = document.getElementById('latest-article');
+const articleGrid = document.getElementById('article-grid');
+if (articleGrid) {
 
-if (latestArticleSection) {
-    let allArticles = [];
-
-    const renderMagazinePage = (mainArticleId) => {
-        const mainArticle = allArticles.find(article => article.id === mainArticleId);
-        const archiveArticles = allArticles.filter(article => article.id !== mainArticleId);
-        
-        // 이미지가 있을 경우에만 이미지 태그를 생성
-        const imageHtml = mainArticle.imageUrl 
-            ? `<img src="${mainArticle.imageUrl}" alt="${mainArticle.title}" style="width:100%; border-radius:10px; margin-bottom:20px;">` 
-            : '';
-
-        latestArticleSection.innerHTML = `
-            ${imageHtml}
-            <h2>${mainArticle.title}</h2>
-            <div class="meta">
-                <span><strong>글쓴이:</strong> ${mainArticle.author}</span> | <span><strong>발행일:</strong> ${mainArticle.createdAt.toLocaleString()}</span>
-            </div>
-            <div class="content">
-                <p>${mainArticle.content.replace(/\n/g, '</p><p>')}</p>
-            </div>
-        `;
-
-        const archiveList = document.querySelector('#article-archive ul');
-        archiveList.innerHTML = '';
-        archiveArticles.forEach(article => {
-            const listItem = document.createElement('li');
-            listItem.innerHTML = `<a href="#" data-id="${article.id}">${article.title}</a>`;
-            archiveList.appendChild(listItem);
-        });
-    };
-
-    const loadAllArticles = async () => {
+    const loadArticleGrid = async () => {
         try {
             const querySnapshot = await db.collection('articles').orderBy('createdAt', 'desc').get();
-            
-            allArticles = querySnapshot.docs.map(doc => ({
-                id: doc.id,
-                ...doc.data(),
-                createdAt: new Date(doc.data().createdAt.seconds * 1000)
-            }));
+            articleGrid.innerHTML = ''; // '로딩중' 메시지 지우기
 
-            if (allArticles.length > 0) {
-                renderMagazinePage(allArticles[0].id);
-            } else {
-                latestArticleSection.innerHTML = '<p>아직 발행된 기사가 없습니다.</p>';
+            if (querySnapshot.empty) {
+                articleGrid.innerHTML = '<p>아직 발행된 기사가 없습니다.</p>';
+                return;
             }
+
+            querySnapshot.forEach(doc => {
+                const article = { id: doc.id, ...doc.data() };
+                
+                // 썸네일 전체를 감싸는 링크(a) 태그 만들기
+                const link = document.createElement('a');
+                link.href = `article-detail.html?id=${article.id}`;
+                link.target = '_blank'; // 새 탭에서 열기
+                link.className = 'thumbnail';
+
+                // 이미지가 있으면 이미지 썸네일, 없으면 텍스트 썸네일
+                if (article.imageUrl) {
+                    link.innerHTML = `<img src="${article.imageUrl}" alt="${article.title}">`;
+                } else {
+                    link.innerHTML = `<div class="thumbnail-text">${article.title}</div>`;
+                }
+                
+                articleGrid.appendChild(link);
+            });
+
         } catch (error) {
-            console.error("기사 로딩 중 오류 발생:", error);
+            console.error("기사 목록 로딩 중 오류 발생:", error);
+            articleGrid.innerHTML = '<p>기사 목록을 불러오는 데 실패했습니다.</p>';
         }
     };
-    
-    document.querySelector('#article-archive').addEventListener('click', (event) => {
-        if (event.target.tagName !== 'A') return;
-        event.preventDefault();
-        const clickedArticleId = event.target.dataset.id;
-        renderMagazinePage(clickedArticleId);
-    });
+    window.addEventListener('load', loadArticleGrid);
+}
 
-    window.addEventListener('load', loadAllArticles);
+// =====================================================================
+// == article-detail.html (기사 상세) 페이지를 위한 코드 ==
+// =====================================================================
+const articleContainer = document.querySelector('.article-container');
+if (articleContainer) {
+
+    const loadArticleDetail = async () => {
+        // 주소창에서 기사 ID 가져오기 (예: ...?id=ABCDEFG)
+        const params = new URLSearchParams(window.location.search);
+        const articleId = params.get('id');
+
+        if (!articleId) {
+            articleContainer.innerHTML = '<h2>잘못된 접근입니다.</h2>';
+            return;
+        }
+
+        try {
+            const docRef = db.collection('articles').doc(articleId);
+            const doc = await docRef.get();
+
+            if (doc.exists) {
+                const article = doc.data();
+                const createdAt = new Date(article.createdAt.seconds * 1000);
+
+                // 가져온 데이터로 페이지 내용 채우기
+                document.getElementById('article-title-detail').textContent = article.title;
+                document.getElementById('article-meta-detail').innerHTML = `
+                    <span><strong>글쓴이:</strong> ${article.author}</span> | <span><strong>발행일:</strong> ${createdAt.toLocaleString()}</span>
+                `;
+                // 기사 내용 (줄바꿈 문자를 <p> 태그로 변환)
+                document.getElementById('article-content-detail').innerHTML = `<p>${article.content.replace(/\n/g, '</p><p>')}</p>`;
+
+                // 이미지가 있을 경우에만 이미지 표시
+                if (article.imageUrl) {
+                    document.getElementById('article-image-detail').innerHTML = `<img src="${article.imageUrl}" alt="${article.title}">`;
+                }
+
+            } else {
+                console.log("No such document!");
+                articleContainer.innerHTML = '<h2>기사를 찾을 수 없습니다.</h2>';
+            }
+        } catch (error) {
+            console.error("기사 상세 정보 로딩 중 오류 발생:", error);
+        }
+    };
+
+    // '뒤로가기' 버튼 기능
+    const backButton = document.getElementById('back-button');
+    if (backButton) {
+        backButton.addEventListener('click', () => {
+            window.close(); // 현재 탭 닫기
+        });
+    }
+
+    window.addEventListener('load', loadArticleDetail);
 }
