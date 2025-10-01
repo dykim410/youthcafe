@@ -2,7 +2,7 @@
 const firebaseConfig = {
   apiKey: "AIzaSyC103yKBIqWbanGh4qTWoclo8gTNLJAU44",
   authDomain: "youthcafe-8703d.firebaseapp.com",
-  projectId: "youthcafe-8703d",
+  projectId: "youthcafe-8703d", 
   storageBucket: "youthcafe-8703d.firebasestorage.app",
   messagingSenderId: "30683407833",
   appId: "1:30683407833:web:c0cf5c22980ca8a3e665c8"
@@ -429,3 +429,4 @@ if (articleContainer) {
 
     window.addEventListener('load', loadArticleDetail);
 }
+
