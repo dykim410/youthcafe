@@ -430,14 +430,16 @@ if (articleContainer) {
     window.addEventListener('load', loadArticleDetail);
 }
 
+// ✅ 이 전체 블록을 복사해서 기존의 미션 뽑기 코드를 덮어써 주세요.
+
 // =====================================================================
 // == index.html '오늘의 미션 뽑기' 기능을 위한 코드 ==
 // =====================================================================
 const drawMissionBtn = document.getElementById('draw-mission-btn');
 if (drawMissionBtn) {
+    // ✅ 변수 이름이 'missionDisplay' 인지 확인
     const missionDisplay = document.getElementById('mission-display');
     
-    // 여기에 원하는 미션들을 자유롭게 추가하거나 수정하세요!
     const missions = [
         "새로운 친구에게 먼저 인사하기!",
         "나로스타쌤에게 오늘 먹은 점심 메뉴 알려주기!",
@@ -450,11 +452,10 @@ if (drawMissionBtn) {
     ];
 
     drawMissionBtn.addEventListener('click', () => {
-        // missions 배열에서 랜덤으로 하나를 선택
         const randomIndex = Math.floor(Math.random() * missions.length);
         const selectedMission = missions[randomIndex];
-      
-       // 화면에 선택된 미션 표시
+        
+        // ✅ 사용할 때도 똑같이 'missionDisplay'를 사용해야 합니다.
         missionDisplay.textContent = selectedMission;
     });
 }
