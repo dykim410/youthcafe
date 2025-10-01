@@ -430,3 +430,32 @@ if (articleContainer) {
     window.addEventListener('load', loadArticleDetail);
 }
 
+// =====================================================================
+// == index.html '오늘의 미션 뽑기' 기능을 위한 코드 ==
+// =====================================================================
+const drawMissionBtn = document.getElementById('draw-mission-btn');
+if (drawMissionBtn) {
+    const missionDisplay = document.getElementById('mission-display');
+    
+    // 여기에 원하는 미션들을 자유롭게 추가하거나 수정하세요!
+    const missions = [
+        "새로운 친구에게 먼저 인사하기!",
+        "나로스타쌤에게 오늘 먹은 점심 메뉴 알려주기!",
+        "유카에 있는 노래 한 곡 끝까지 감상하기",
+        "보드게임 한 판 하기",
+        "오늘 하루 감사했던 일 한 가지 말해주기",
+        "가장 자신있는 개인기 보여주기!",
+        "친구 한 명 칭찬해주기",
+        "키리쌤과 하이파이브 하기!"
+    ];
+
+    drawMissionBtn.addEventListener('click', () => {
+        // missions 배열에서 랜덤으로 하나를 선택
+        const randomIndex = Math.floor(Math.random() * missions.length);
+        const selectedMission = missions[randomIndex];
+        
+        // 화면에 선택된 미션 표시
+        missionDisplay.textContent = selectedMission;
+    });
+}
+
