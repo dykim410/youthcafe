@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>유스카페에 온 걸 환영해!</title>
+    <title>만나서 반가워!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,39 +20,49 @@
         </nav>
     </header>
 
-
     <main>
-        <h1>👋 유스카페에 온 걸 환영해요!</h1>
+        <section class="hero-section">
+            <h1 class="main-title">
+                <span>공</span><span>터</span><span>&nbsp;</span><span>유</span><span>스</span><span>카</span><span>페</span><span>에</span><span>&nbsp;</span><span>온</span><span>&nbsp;</span><span>걸</span><span>&nbsp;</span><span>환</span><span>영</span><span>해</span><span>!</span>
+            </h1>
+            <p class="hero-subtitle">청소년을 위한 가장 즐겁고 편안한 아지트</p>
+        </section>
 
-        <section class="intro-card">
-            <h2>🚀 유스카페는 어떤 공간인가요?</h2>
-            <p>유스카페는 청소년들이 편안하게 쉬고, 친구들과 즐겁게 놀고, 자신의 재능을 마음껏 뽐낼 수 있는 청소년에 의한, 청소년을 위한 공간입니다. 11~19세 사이의 청소년이라면 누구나 유스카페를 이용할 수 있어요!</p>
+        <section class="intro-card mission-card">
+            <h2>🎲 오늘의 미션 뽑기!</h2>
+            <p>버튼을 눌러 오늘 유스카페에서 도전할 미션을 확인해보세요!</p>
+            <div id="mission-display">오늘의 미션은 무엇일까요?</div>
+            <button id="draw-mission-btn">미션 뽑기!</button>
         </section>
 
         <section class="intro-card kiri-card">
             <img src="[키리쌤 프로필 이미지 주소]" alt="키리쌤" class="profile-pic">
             <div>
-                <h2>🙋‍♀️ '키리쌤'의 인사말</h2>
-                <p>"[   안뇽하세용키리샘입니다      ]"</p>
+                <h2>🙋‍♀️'키리쌤'의 인사말</h2>
+                <p>"[여기에 키리쌤의 인사말을 넣어주세요!]"</p>
             </div>
         </section>
 
-        <section class="intro-card">
-            <h2>⭐ '나로스타'는 누구인가요?</h2>
-            <p>카페에는 바리스타, 유카에는 나로스타!
+        <div class="intro-grid">
+            <section class="intro-card">
+                <h2>⭐ '나로스타'는 누구인가요?</h2>
+                <p>카페에는 바리스타, 유카에는 나로스타!
                 '나로스타'는 유스카페에 방문하는 모든 아이들이 청결하고 안전한 공간에서 시간을 보낼 수 있도록 유스카페의 운영을 돕는 선생님들이에요. 
                 그 뿐만 아니라, 다양한 활동을 함께하며 아이들과 즐거운 추억을 만들어나가고 있어요!
-                도움이 필요하거나 함께 도전해보고 싶은 활동이 있다면, 언제든 '나로스타'쌤을 찾아주세요! : ) </p>
-        </section>
-        
-        <section class="intro-card">
-            <h2>📜 유스카페 메뉴판</h2>
-            <ol class="rules-list">
-                <li>[첫 번째 규칙을 여기에 적어주세요. 예: 서로에게 예의를 지키고 존중하는 말을 사용해요.]</li>
-                <li>[두 번째 규칙을 여기에 적어주세요. 예: 사용한 물건(보드게임, 악기 등)은 제자리에 정리해요.]</li>
-                <li>[세 번째 규칙을 여기에 적어주세요. 예: 도움이 필요하면 언제든 주저하지 말고 쌤들에게 이야기해요!]</li>
-            </ol>
-        </section>
+                도움이 필요하거나 함께 도전해보고 싶은 활동이 있다면, 언제든 '나로스타'쌤을 찾아주세요! : ) 
+</p>
+            </section>
+            
+            <section class="intro-card">
+                <h2>📜 유스카페 메뉴판</h2>
+                <ol class="rules-list">
+                    <li>[첫 번째 규칙을 여기에 적어주세요.]</li>
+                    <li>[두 번째 규칙을 여기에 적어주세요.]</li>
+                    <li>[세 번째 규칙을 여기에 적어주세요.]</li>
+                    <li>[네 번째 규칙을 여기에 적어주세요.]</li>
+                </ol>
+            </section>
+        </div>
     </main>
 
     <footer>
@@ -64,9 +74,4 @@
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
     <script src="script.js"></script>
 </body>
-
 </html>
-
-
-
-
